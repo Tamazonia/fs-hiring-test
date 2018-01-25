@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  motel: one
+  room: one
+  amount_centavos: 1
+  fee_percentage: 1
+  booking_period: MyString
+  created_at: MyString
+  paid_at: MyString
+  booking_code: MyString
+
+two:
+  motel: two
+  room: two
+  amount_centavos: 1
+  fee_percentage: 1
+  booking_period: MyString
+  created_at: MyString
+  paid_at: MyString
+  booking_code: MyString
