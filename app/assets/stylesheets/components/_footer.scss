@@ -1,0 +1,24 @@
+.footer {
+  background-color: $gray;
+  padding: 30px;
+  color: white;
+  font-size: 24px;
+  font-weight: lighter;
+  min-height: 115px;
+  // position:absolute;
+  // width:100%;
+  // bottom:0px;
+}
+
+.footer ul {
+  list-style-type: none;
+}
+
+.footer a {
+  text-decoration: none;
+  color: white;
+}
+
+.bold {
+  font-weight: 10px;
+}
