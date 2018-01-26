@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180125180632) do
+ActiveRecord::Schema.define(version: 20180126135451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20180125180632) do
     t.string "paid_at"
     t.string "booking_code"
     t.datetime "updated_at", null: false
+    t.integer "api_booking_id"
     t.index ["motel_id"], name: "index_bookings_on_motel_id"
     t.index ["room_id"], name: "index_bookings_on_room_id"
   end
@@ -34,6 +35,9 @@ ActiveRecord::Schema.define(version: 20180125180632) do
     t.string "logo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "api_motel_id"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_motels_on_user_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -42,6 +46,7 @@ ActiveRecord::Schema.define(version: 20180125180632) do
     t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "api_room_id"
     t.index ["motel_id"], name: "index_rooms_on_motel_id"
   end
 
@@ -64,5 +69,6 @@ ActiveRecord::Schema.define(version: 20180125180632) do
 
   add_foreign_key "bookings", "motels"
   add_foreign_key "bookings", "rooms"
+  add_foreign_key "motels", "users"
   add_foreign_key "rooms", "motels"
 end
