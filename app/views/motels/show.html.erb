@@ -1,18 +1,11 @@
 <div class="container fullscreen">
-
-
-
-
-
   <div class="revenue">
-      <p><i class="fa fa-chevron-left link" aria-hidden="true"></i><%=link_to " back", motels_path, class:"link orange" %></p>
+    <p><i class="fa fa-chevron-left link" aria-hidden="true"></i><%=link_to " back", motels_path, class:"link orange" %></p>
 
     <div class="total">
       <h1>Total net earnings <span><%= @motel.name %>:</span>  </h1>
       <h1 class="bold bg-success"> R$ <%=number_with_delimiter(@earnings.to_f/100)%> </h1>
     </div>
-
-
     <% @rooms.each do |room|%>
       <div class="card">
         <img src= <%= room.picture %> alt="" class="logo img-rounded hidden-xs hidden-sm">
@@ -30,6 +23,4 @@
       </div>
     <% end %>
   </div>
-
-
 </div>
