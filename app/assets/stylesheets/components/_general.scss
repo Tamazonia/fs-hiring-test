@@ -30,3 +30,18 @@ p {
 .right {
   text-align: right;
 }
+
+.link {
+  text-decoration: none;
+  margin-bottom: 0px;
+  font-size: 15px !important;
+  font-weight: thin;
+  color: $orange;
+
+  &:hover {
+    text-decoration: none;
+    color: $orange;
+    opacity: 0.6;
+  }
+
+}
