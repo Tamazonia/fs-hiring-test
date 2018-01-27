@@ -1,8 +1,9 @@
 
-User.destroy_all
+
 Booking.destroy_all
 Room.destroy_all
 Motel.destroy_all
+User.destroy_all
 
 users = []
 
@@ -75,6 +76,7 @@ motels.each do |m|
     )
     booking.motel = Motel.find_by api_motel_id: m["id"]
     booking.room = Room.find_by api_room_id: b["room_id"]
+    booking.amount_centavos_earned = (booking.amount_centavos * (100-booking.fee_percentage))/100
     booking.save
   end
 end

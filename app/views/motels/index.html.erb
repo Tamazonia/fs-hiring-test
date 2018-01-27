@@ -1,2 +1,29 @@
-<h1>Motels#index</h1>
-<p>Find me in app/views/motels/index.html.erb</p>
+<div class="container fullscreen">
+  <div class="motel-revenue">
+    <div class="total">
+      <h1>Net earnings: </h1>
+      <h1 class="bold bg-success"> R$ <%=number_with_delimiter(@earnings.to_f/100)%> </h1>
+    </div>
+
+
+    <% @motels.each do |motel|%>
+      <div class="card">
+        <img src= <%= motel.logo %> alt="" class="logo img-rounded hidden-xs hidden-sm">
+        <div class="overall">
+          <h3 class="orange"> <%= motel.name %> </h3>
+          <p> <span class="bold">Bookings:</span> <span> <%= motel.bookings.count%> </span> </p>
+            <p> <span class="bold">Gross Sale:</span> <span> R$ <%= number_with_delimiter((motel.bookings.sum(:amount_centavos).to_f)/100) %> </span></p>
+            <p> <span class="bold">Commissions:</span> <span> R$ <%= number_with_delimiter(((motel.bookings.sum(:amount_centavos).to_f) - (motel.bookings.sum(:amount_centavos_earned).to_f))/100) %> </span></p>
+        </div>
+        <div class="earned">
+          <p class="bold">Net earnings:</p>
+          <h3 class="bold"> R$ <%= number_with_delimiter((motel.bookings.sum(:amount_centavos_earned).to_f)/100) %> </h3>
+
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+
+
+</div>
