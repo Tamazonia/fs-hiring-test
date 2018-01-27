@@ -1,9 +1,11 @@
-
+.revenue {
+  margin-top: 30px;
+  min-height: 1px;
+}
 
 .total {
   padding-right: 20px;
   border-radius: 30px;
-  margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -14,6 +16,7 @@
 }
 
 .card {
+  position: relative;
   display: flex;
   background-color: white;
   flex-wrap: wrap;
@@ -25,10 +28,18 @@
   p {
     font-size: 15px;
   }
-
   &:hover {
     opacity: 0.6;
   }
+}
+
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index:2;
 }
 
 .logo {
@@ -44,4 +55,6 @@
 .earned {
   padding: 20px;
 }
+
+
 

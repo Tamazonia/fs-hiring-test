@@ -10,13 +10,12 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Revenue", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Bookings", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "navbar-wagon-link" %>
+      <%= link_to "Revenue", motels_path, class: "navbar-wagon-item navbar-wagon-link link" %>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "navbar-wagon-link link" %>
 
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link link" %>
     <% end %>
   </div>
 
@@ -27,10 +26,9 @@
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <% if user_signed_in? %>
           <li><%= link_to "Revenue", "#", class: "navbar-wagon-item navbar-wagon-link" %></li>
-          <li><%= link_to "Bookings", "#", class: "navbar-wagon-item navbar-wagon-link" %></li>
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "navbar-wagon-link" %></li>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "navbar-wagon-link link" %></li>
         <% else %>
-          <li><%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+          <li><%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link link" %></li>
         <% end %>
       </ul>
     </div>

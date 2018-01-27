@@ -1,7 +1,8 @@
 <div class="container fullscreen">
-  <div class="motel-revenue">
+  <div class="revenue">
+
     <div class="total">
-      <h1>Net earnings: </h1>
+      <h1>Total net earnings: </h1>
       <h1 class="bold bg-success"> R$ <%=number_with_delimiter(@earnings.to_f/100)%> </h1>
     </div>
 
@@ -18,9 +19,8 @@
         <div class="earned">
           <p class="bold">Net earnings:</p>
           <h3 class="bold"> R$ <%= number_with_delimiter((motel.bookings.sum(:amount_centavos_earned).to_f)/100) %> </h3>
-
         </div>
-
+        <%=link_to "", motel_path(motel), class:"card-link" %>
       </div>
     <% end %>
   </div>
