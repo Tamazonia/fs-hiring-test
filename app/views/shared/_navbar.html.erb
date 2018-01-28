@@ -10,7 +10,8 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Revenue", motels_path, class: "navbar-wagon-item navbar-wagon-link link" %>
+      <%= link_to "Motels", motels_path, class: "navbar-wagon-item navbar-wagon-link link" %>
+      <%= link_to "Bookings", bookings_path, class: "navbar-wagon-item navbar-wagon-link link" %>
       <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "navbar-wagon-link link" %>
 
     <% else %>
@@ -25,7 +26,8 @@
       <i class="fa fa-bars dropdown-toggle orange" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <% if user_signed_in? %>
-          <li><%= link_to "Revenue", motels_path, class: "navbar-wagon-item navbar-wagon-link link" %></li>
+          <li><%= link_to "Motels", motels_path, class: "navbar-wagon-item navbar-wagon-link link" %></li>
+          <li><%= link_to "Bookings", bookings_path, class: "navbar-wagon-item navbar-wagon-link link" %></li>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "navbar-wagon-link link" %></li>
         <% else %>
           <li><%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link link" %></li>

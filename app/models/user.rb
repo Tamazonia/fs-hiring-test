@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :motels
+  has_many :bookings, through: :motels
+  has_many :rooms, through: :motels
 end

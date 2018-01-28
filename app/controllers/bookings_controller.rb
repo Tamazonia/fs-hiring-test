@@ -1,11 +1,15 @@
 class BookingsController < ApplicationController
-  skip_before_action :authenticate_user!
 
   def index
+    # @motel = Motel.find(params[:motel_id])
 
-  end
+    @user = current_user
+    @bookings = @user.bookings
+    @bookings = policy_scope(Booking)
 
-  def show
+    # @user.bookings =
+    # @bookings = @motel.bookings
+    # @bookings = policy_scope(Booking)
 
   end
 
