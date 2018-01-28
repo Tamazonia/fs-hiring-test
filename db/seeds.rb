@@ -35,6 +35,8 @@ end
 
 
 # Creation of Motels from the API
+
+
 motels.each do |m|
   motel = Motel.new(
     name: m["name"],
@@ -44,6 +46,15 @@ motels.each do |m|
   )
   motel.save
 end
+
+
+# Make sure first 3 Motels have a specific exact users for testing and documentation reasons
+motela = Motel.first.user = User.first
+motela.save
+motelb = Motel.second.user = User.first
+motelb.save
+motelc = Motel.third.user = User.second
+motelc.save
 
 
 # Creation of Rooms from the API

@@ -4,7 +4,7 @@
 
     <div class="total">
       <h1>Total net earnings <span><%= @motel.name %>:</span>  </h1>
-      <h1 class="bold bg-success"> R$ <%=number_with_delimiter(@earnings.to_f/100)%> </h1>
+      <h1 class="bold bg-success"> R$ <%=number_with_delimiter((@earnings.to_f/100))%> </h1>
     </div>
     <% @rooms.each do |room|%>
       <div class="card">
@@ -12,7 +12,7 @@
         <div class="overall">
           <h3 class="orange"> <%= room.name %> </h3>
           <p> <span class="bold">Bookings:</span> <span> <%= room.bookings.count%> </span> </p>
-            <p> <span class="bold">Gross Sale:</span> <span> R$ <%= number_with_delimiter((room.bookings.sum(:amount_centavos).to_f)/100) %> </span></p>
+            <p> <span class="bold">Gross Sale:</span> <span> R$ <%= number_with_delimiter(((room.bookings.sum(:amount_centavos).to_f)/100).round(2)) %> </span></p>
             <p> <span class="bold">Commissions:</span> <span> R$ <%= number_with_delimiter(((room.bookings.sum(:amount_centavos).to_f) - (room.bookings.sum(:amount_centavos_earned).to_f))/100) %> </span></p>
         </div>
         <div class="earned">
