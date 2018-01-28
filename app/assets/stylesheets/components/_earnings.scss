@@ -29,9 +29,6 @@
   p {
     font-size: 15px;
   }
-  &:hover {
-    opacity: 0.6;
-  }
 }
 
 .card-link {
@@ -41,6 +38,10 @@
   right: 0;
   width: 100%;
   z-index:2;
+  &:hover {
+    background-color: $light-gray;
+    opacity: 0.6;
+  }
 }
 
 .logo {
@@ -53,21 +54,19 @@
   padding: 20px;
 }
 
+.overall-bel {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.overall-bel-item {
+  padding: 10px;
+  flex: 1 0 auto;
+}
+
 .earned {
   padding: 20px;
 }
-
-// .around {
-//   align-items: center;
-//   padding: 20px;
-//   background-color: $red;
-//   color: white;
-//   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-//   margin-bottom: 10px;
-//   img {
-//     max-width: 100%;
-//   }
-// }
 
 .around {
   color: white;
@@ -77,11 +76,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   h1 {
     font-size: 50px;
     font-weight: bold;
     text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
   }
+
   p {
     font-size: 25px;
     font-weight: lighter;

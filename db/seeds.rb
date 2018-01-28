@@ -12,11 +12,11 @@ users = []
     email: "user1@gmail.com",
     password: "123456"
   )
-    users << User.create!(
+  users << User.create!(
     email: "user2@gmail.com",
     password: "123456"
   )
-    users << User.create!(
+  users << User.create!(
     email: "user3@gmail.com",
     password: "123456"
   )
@@ -35,8 +35,6 @@ end
 
 
 # Creation of Motels from the API
-
-
 motels.each do |m|
   motel = Motel.new(
     name: m["name"],
@@ -49,12 +47,18 @@ end
 
 
 # Make sure first 3 Motels have a specific exact users for testing and documentation reasons
-motela = Motel.first.user = User.first
+motela = Motel.first
+motela.user = User.first
 motela.save
-motelb = Motel.second.user = User.first
+
+motelb = Motel.second
+motelb.user = User.first
 motelb.save
-motelc = Motel.third.user = User.second
+
+motelc = Motel.third
+motelc.user = User.second
 motelc.save
+
 
 
 # Creation of Rooms from the API
@@ -72,6 +76,7 @@ motels.each do |m|
   end
 end
 
+
 # Creation of Bookings from the API
 motels.each do |m|
   motel_id = m["id"]
@@ -83,7 +88,8 @@ motels.each do |m|
       booking_period: b["booking_period"],
       paid_at: b["paid_at"],
       booking_code: b["booking_code"],
-      api_booking_id: b["id"]
+      api_booking_id: b["id"],
+      api_created_at: b["created_at"]
     )
     booking.motel = Motel.find_by api_motel_id: m["id"]
     booking.room = Room.find_by api_room_id: b["room_id"]
