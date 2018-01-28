@@ -7,7 +7,6 @@
         <h1 class="bold bg-success"> R$ <%=number_with_delimiter(@earnings.to_f/100)%> </h1>
       </div>
 
-
       <% @motels.each do |motel|%>
         <div class="card">
           <img src= <%= motel.logo %> alt="" class="logo img-rounded hidden-xs hidden-sm">
