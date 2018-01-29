@@ -1,14 +1,19 @@
 # 1. About
 This product has been developed within the full-stack hiring test of Luvmotels : https://github.com/luvotels/fs-hiring-test/
-The final product can be seen online on: https://tjluvotels.herokuapp.com/. There are three users with the following email | password | amount of motels
-- user1@gmail.com |  123456 | 2 motels
-- user2@gmail.com |  123456 | 1 motel
-- user3@gmail.com |  123456 | 0 motel
+The final product can be seen online on: https://tjluvotels.herokuapp.com/. There are three users with the following information:
+
+| User | Passwords | Amount of Motels |
+| --- | --- |---|
+| user1@gmail.com | 123456|  2 motels |
+| user2@gmail.com | 123456|  1 motel |
+| user3@gmail.com | 123456|  0 motels |
 
 
 # 2. Implemented Solution
 ## 2.1 Product
 The developed product focus on the scope of the user login of a motel owner and the administration of bookings and revenues.
+
+![fs-test-scope](https://user-images.githubusercontent.com/25422365/35520829-128162c4-0510-11e8-8c2c-99df356ccade.png)
 
 The following user stories have been implemented:
 1) Login: As a Motel Owner I want to have access to the information of my motel and my rooms
@@ -30,8 +35,11 @@ $ rails db:seed
 ```
 
 ### 2.2.2 Data/API
-The data of the solution is depending on the Luvmotels API. The models (motel, room, booking) have been built around this API. In order to add a user component, an extra model for user has been created
-The database gets populated by calling the API in the Seed. In order to make the references work, extra fields were included: api_motel_id, api_room_id, api_booking_id
+The data of the solution is depending on the Luvmotels API. The models (motel, room, booking) have been built around this API. In order to add a user component, an extra model for user has been created.
+The database gets populated by calling the API in the Seed. In order to make the references work, extra fields were included: api_motel_id, api_room_id, api_booking_id.
+Moreover, there has been another extra field inserted for bookings in order to make the calcualtion of the net earnings easier: amount_centavos_earned
+This leads to the following DB scheme:
+<img width="400" alt="dbscheme" src="https://user-images.githubusercontent.com/25422365/35521185-0841f372-0511-11e8-801e-7c4622a6cef3.png">
 
 ### 2.2.3 Authentication and Authorization
 In order to implement user story 1 and 2, devise and pundit is used
