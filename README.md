@@ -61,6 +61,8 @@ The following describes the main test cases that need to be performed. To check 
 
 
 #### B) User Test Data
+Remark: These are static test data for the current API data and the fixed User/Motel relation:
+
 | User | Motels | Rooms | Total Bookings | Total Net Earnings |
 | --- | --- |---|---|---|
 | user1 | Beatles Motel, Nirvana Motels| Heart Shaped Room, Drain your Suite, Love Buzz Suite, Twist and Shout Room, All my loving Room |650|R$ 69,290.40|
