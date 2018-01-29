@@ -10,7 +10,7 @@
     <% @bookings.each do |booking|%>
         <div class="card">
           <div class="overall">
-            <h3 class="orange"> <%= booking.paid_at[0,10] %> </h3>
+            <h3 class="orange"> <%= booking.paid_at[0,10] %> (paid at)</h3>
             <div class="row">
               <div class="col-md-6 col-xs-12 left">
                 <p> <span class="bold">Gross Price:</span> <span> R$ <%= ((booking.amount_centavos.to_f/100)) %> </span></p>
