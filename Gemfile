@@ -2,14 +2,15 @@ source 'https://rubygems.org'
 ruby '2.3.3'
 
 gem 'devise'
-gem "pundit"
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
+gem 'pundit'
 gem 'rails', '5.1.4'
 gem 'redis'
 gem 'rest-client'
+gem 'rubocop', require: false
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
@@ -18,7 +19,6 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-gem 'faker'
 
 
 group :development do
