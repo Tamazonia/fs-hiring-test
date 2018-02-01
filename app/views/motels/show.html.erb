@@ -19,7 +19,7 @@
           <p class="bold">Net earnings:</p>
           <h3 class="bold"> R$ <%= number_with_delimiter((room.bookings.sum(:amount_centavos_earned).to_f)/100) %> </h3>
         </div>
-        <%#=link_to "", room_path(room), class:"card-link" %>
+        <%=link_to "", motel_room_path(room.motel, room), class:"card-link" %>
       </div>
     <% end %>
   </div>
