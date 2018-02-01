@@ -1,5 +1,4 @@
 class MotelsController < ApplicationController
-
   def show
     @motel = Motel.find(params[:id])
     authorize @motel
