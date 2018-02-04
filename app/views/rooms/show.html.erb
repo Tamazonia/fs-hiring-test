@@ -14,8 +14,8 @@
             <div class="row">
               <div class="col-md-6 col-xs-12 left">
                 <p> <span class="bold">Gross Price:</span> <span> R$ <%= money_display(booking.amount_centavos) %> </span></p>
-                <p> <span class="bold">Commissions:</span> <span> R$ <%= commission_calc(booking.amount_centavos, booking.amount_centavos_earned)%> </span></p>
-                <p> <span class="bold">Fee Percentage:</span> <span> <%= booking.fee_percentage.round%>% </span></p>
+                <p> <span class="bold">Commissions:</span> <span> R$ <%= commission_calc(booking.amount_centavos, booking.amount_centavos_earned) %> </span></p>
+                <p> <span class="bold">Fee Percentage:</span> <span> <%= booking.fee_percentage.round %>% </span></p>
               </div>
               <div class="col-md-6 col-xs-12 left">
                 <p> <span class="bold">Period:</span> <span> <%= booking.booking_period %> </span></p>
