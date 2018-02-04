@@ -13,8 +13,8 @@
             <h3 class="orange"> <%= booking.paid_at[0,10] %> (paid at)</h3>
             <div class="row">
               <div class="col-md-6 col-xs-12 left">
-                <p> <span class="bold">Gross Price:</span> <span> R$ <%= ((booking.amount_centavos.to_f/100)) %> </span></p>
-                <p> <span class="bold">Commissions:</span> <span> R$ <%= ((booking.amount_centavos.to_f/100) - (booking.amount_centavos_earned.to_f/100)).round(2) %> </span></p>
+                <p> <span class="bold">Gross Price:</span> <span> R$ <%= money_display(booking.amount_centavos) %> </span></p>
+                <p> <span class="bold">Commissions:</span> <span> R$ <%= commission_calc(booking.amount_centavos, booking.amount_centavos_earned)%> </span></p>
                 <p> <span class="bold">Fee Percentage:</span> <span> <%= booking.fee_percentage.round%>% </span></p>
               </div>
               <div class="col-md-6 col-xs-12 left">
@@ -26,7 +26,7 @@
           </div>
           <div class="earned">
             <p class="bold">Net earnings:</p>
-            <h3 class="bold"> R$ <%= booking.amount_centavos_earned.to_f/100 %> </h3>
+            <h3 class="bold"> R$ <%= money_display(booking.amount_centavos_earned) %> </h3>
           </div>
         </div>
     <% end %>

@@ -1,0 +1,2 @@
+module MotelHelper
+end

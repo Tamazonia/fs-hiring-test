@@ -4,7 +4,7 @@
 
       <div class="total">
         <h1>Total net earnings: </h1>
-        <h1 class="bold bg-success"> R$ <%=number_with_delimiter(@earnings.to_f/100)%> </h1>
+        <h1 class="bold bg-success"> R$ <%=money_display(@earnings)%> </h1>
       </div>
 
       <% @motels.each do |motel|%>
@@ -13,12 +13,12 @@
           <div class="overall">
             <h3 class="orange"> <%= motel.name %> </h3>
             <p> <span class="bold">Bookings:</span> <span> <%= motel.bookings.count%> </span> </p>
-            <p> <span class="bold">Gross Sale:</span> <span> R$ <%= number_with_delimiter((motel.bookings.sum(:amount_centavos).to_f)/100) %> </span></p>
-            <p> <span class="bold">Commissions:</span> <span> R$ <%= number_with_delimiter(((motel.bookings.sum(:amount_centavos).to_f) - (motel.bookings.sum(:amount_centavos_earned).to_f))/100) %> </span></p>
+            <p> <span class="bold">Gross Sale:</span> <span> R$ <%= money_display(motel.bookings.sum(:amount_centavos)) %> </span></p>
+            <p> <span class="bold">Commissions:</span> <span> R$ <%= commission_calc(motel.bookings.sum(:amount_centavos), motel.bookings.sum(:amount_centavos_earned)) %> </span></p>
           </div>
           <div class="earned">
             <p class="bold">Net earnings:</p>
-            <h3 class="bold"> R$ <%= number_with_delimiter((motel.bookings.sum(:amount_centavos_earned).to_f)/100) %> </h3>
+            <h3 class="bold"> R$ <%= money_display(motel.bookings.sum(:amount_centavos_earned)) %> </h3>
           </div>
           <%=link_to "", motel_path(motel), class:"card-link" %>
         </div>
