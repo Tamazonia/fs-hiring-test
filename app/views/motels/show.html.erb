@@ -12,12 +12,12 @@
         <div class="overall">
           <h3 class="orange"> <%= room.name %> </h3>
           <p> <span class="bold">Bookings:</span> <span> <%= room.bookings.count%> </span> </p>
-            <p> <span class="bold">Gross Sale:</span> <span> R$ <%= number_with_delimiter(((room.bookings.sum(:amount_centavos).to_f)/100).round(2)) %> </span></p>
-            <p> <span class="bold">Commissions:</span> <span> R$ <%= number_with_delimiter(((room.bookings.sum(:amount_centavos).to_f) - (room.bookings.sum(:amount_centavos_earned).to_f))/100) %> </span></p>
+            <p> <span class="bold">Gross Sale:</span> <span> R$ <%= money_display(room.bookings.sum(:amount_centavos)) %> </span></p>
+            <p> <span class="bold">Commissions:</span> <span> R$ <%= commission_calc(room.bookings.sum(:amount_centavos), room.bookings.sum(:amount_centavos_earned)) %> </span></p>
         </div>
         <div class="earned">
           <p class="bold">Net earnings:</p>
-          <h3 class="bold"> R$ <%= number_with_delimiter((room.bookings.sum(:amount_centavos_earned).to_f)/100) %> </h3>
+          <h3 class="bold"> R$ <%= money_display(room.bookings.sum(:amount_centavos_earned)) %> </h3>
         </div>
         <%=link_to "", motel_room_path(room.motel, room), class:"card-link" %>
       </div>
