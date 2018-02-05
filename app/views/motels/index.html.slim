@@ -1,0 +1,33 @@
+- if @user.motels.present?
+  .container.fullscreen
+    .revenue
+      .total
+        h1 Total net earnings:
+        h1.bold.bg-success
+          | R$ #{money_display(@earnings)}
+      - @motels.each do |motel|
+        .card
+          img src=motel.logo class="logo img-rounded hidden-xs hidden-sm"
+          .overall
+            h3.orange
+              = motel.name
+            p
+              span.bold Bookings:
+              span
+                = motel.bookings.count
+            p
+              span.bold Gross Sale:
+              span
+                | R$ #{money_display(motel.bookings.sum(:amount_centavos))}
+            p
+              span.bold Commissions:
+              span
+                | R$ #{commission_calc(motel.bookings.sum(:amount_centavos), motel.bookings.sum(:amount_centavos_earned))}
+          .earned
+            p.bold Net earnings:
+            h3.bold
+              | R$ #{money_display(motel.bookings.sum(:amount_centavos_earned))}
+          = link_to "", motel_path(motel), class:"card-link"
+      = link_to "See all bookings", bookings_path, class:"btn btn-warning"
+- else
+  = render "shared/motelless"
